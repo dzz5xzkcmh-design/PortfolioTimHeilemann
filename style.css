@@ -8,7 +8,7 @@
   --border-hi:#C8C6BF;
   --text:#1A1A18;
   --muted:#9A9890;
-  --muted-hi:#5A5A55;
+  --muted-hi:#000000;
   --accent:#3A7D2C;
   --accent-light:#EAF3E6;
   --accent-dim:#C2DDB9;
@@ -31,9 +31,30 @@ nav{
 .nav-links a{font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--text)}
 
-.wrap{max-width:960px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
 
-.hero{padding:calc(60px + 6rem) 0 5rem}
+.hero{padding:0;position:relative;overflow:hidden;min-height:780px;display:flex;align-items:center;justify-content:flex-start}
+.hero-portrait{
+  position:absolute;right:0;top:0;bottom:0;width:100%;
+  pointer-events:none;
+}
+.hero-portrait img{
+  width:100%;height:100%;
+  object-fit:cover;object-position: 80% 60%;
+  display:block;
+  filter:contrast(1.05) brightness(0.75);
+}
+.hero-fade{
+  position:absolute;right:0;top:0;bottom:0;width:100%;
+  background:linear-gradient(to right, rgba(247,247,245,0.45) 0%, rgba(247,247,245,0.2) 35%, transparent 70%);
+  pointer-events:none;z-index:1;
+}
+.hero-fade-bottom{
+  position:absolute;bottom:0;left:0;right:0;height:60px;
+  background:linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events:none;z-index:1;
+}
+.hero-content{position:relative;z-index:2;padding:calc(60px + 6rem) clamp(1.5rem,5vw,5rem) 12rem;max-width:580px;}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:0.6rem;
   font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
@@ -43,7 +64,7 @@ nav{
 .hero-eyebrow::before{content:'';display:block;width:5px;height:5px;background:var(--accent);border-radius:50%}
 .hero h1{font-family:var(--serif);font-size:clamp(3rem,7vw,5.5rem);line-height:1.05;letter-spacing:-0.02em;color:var(--text);margin-bottom:1.75rem}
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:1.05rem;color:var(--muted-hi);max-width:500px;margin-bottom:3rem;line-height:1.75;font-weight:400}
+.hero-sub{font-size:1.05rem;color:var(--muted-hi);max-width:460px;margin-bottom:3rem;line-height:1.75;font-weight:400}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 
 .btn{
@@ -144,13 +165,55 @@ footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display
 .nav-projects a{font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
 .nav-projects a:hover{color:var(--accent)}
 
-@media(max-width:640px){
+/* TABLET */
+@media(max-width:768px){
+  .hero-portrait{width:75%}
+  .hero-fade{width:75%}
+  .hero-content{max-width:100%}
   .project,.project.flip{grid-template-columns:1fr;direction:ltr}
-  .project-visual{border-right:none;border-bottom:1px solid var(--border)}
+  .project-visual{border-right:none;border-bottom:1px solid var(--border);aspect-ratio:16/9}
   .project.flip .project-visual{border-left:none;border-bottom:1px solid var(--border)}
-  .about-grid,.contact-grid{grid-template-columns:1fr}
-  .skills-grid,.detail-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{aspect-ratio:4/3;max-width:280px}
+  .contact-grid{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr}
+  .hero h1{font-size:clamp(2.5rem,8vw,4rem)}
+}
+
+/* MOBILE */
+@media(max-width:480px){
+  /* Nav: Logo links, Links ausblenden */
+  .nav-links{display:none}
+
+  /* Hero */
+  .hero{min-height:520px}
+  .hero-portrait{width:100%;opacity:0.3}
+  .hero-fade{width:100%;background:linear-gradient(to bottom, transparent 40%, var(--bg) 80%)}
+  .hero-content{max-width:100%}
+  .hero h1{font-size:clamp(2rem,10vw,3rem)}
+  .hero-sub{font-size:0.95rem}
+  .hero-ctas{flex-direction:column}
+  .btn{text-align:center}
+
+  /* Marquee etwas langsamer */
+  .marquee-track{animation-duration:28s}
+
+  /* Sections */
+  .section{padding:3rem 0}
+  .project-info{padding:1.5rem}
+
+  /* About */
+  .about-photo{max-width:100%}
+  .skills-grid{grid-template-columns:1fr}
   .skill-item{border-right:none}
   .skill-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
   .skill-item:last-child{border-bottom:none}
+
+  /* Contact */
+  .nav-projects{flex-direction:column;gap:1rem;align-items:flex-start}
+
+  /* Detail pages */
+  .project-hero{padding:calc(60px + 3rem) 0 2rem}
+  .project-hero h1{font-size:clamp(2rem,10vw,3.5rem)}
+  .film-quote{padding:1rem 1.25rem}
 }
