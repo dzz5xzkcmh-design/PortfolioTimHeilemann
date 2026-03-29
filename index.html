@@ -12,7 +12,7 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">Tim Heilemann</a>
+   
     <ul class="nav-links">
       <li><a href="#projekte">Projekte</a></li>
       <li><a href="#about">Über mich</a></li>
@@ -22,15 +22,14 @@
 
   <section class="hero">
     <div class="hero-portrait">
-      <img src="images/DSCF2323.jpg" alt="Tim Heilemann">
+      <img src="images/DSCF2323.JPG" alt="Tim Heilemann">
     </div>
     <div class="hero-fade"></div>
     <div class="hero-fade-bottom"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Bewerbung Praxissemester 2025</div>
-      <h1>Hi <br><em>Das bin ich.</em></h1>
+      <h1>Hi –<br><em>Das bin ich.</em></h1>
       <p class="hero-sub">
-        Hi, ich bin Tim – 21, kreativer Kopf und Student der Medienkonzeption
+        Hi, ich bin Tim – 21, kreativer Kopf und studiere Medienkonzeption
         an der Hochschule Furtwangen. Ich mag es, Ideen zum Leben zu erwecken –
         ob Multiplayer-Game oder Sci-Fi-Trailer.
       </p>
@@ -40,27 +39,6 @@
       </div>
     </div>
   </section>
-
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item"><span class="marquee-dot"></span>Three.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>WebGL / GLSL</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>WebSockets</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>JavaScript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Medienkonzeption</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Hochschule Furtwangen</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Creative Coding</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Audiovisuelle Umgebungen</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Three.js</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>WebGL / GLSL</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>WebSockets</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>JavaScript</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Medienkonzeption</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Hochschule Furtwangen</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Creative Coding</span>
-      <span class="marquee-item"><span class="marquee-dot"></span>Audiovisuelle Umgebungen</span>
-    </div>
-  </div>
 
   <section class="section" id="projekte">
     <div class="wrap">
@@ -119,7 +97,7 @@
             <circle cx="12" cy="8" r="4" stroke="#C2DDB9" stroke-width="1.5"/>
             <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#C2DDB9" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-         
+          Foto einfügen
         </div>
         <div class="about-text">
           <h2>Kreativer Kopf<br>mit <em>Spaß an der Arbeit.</em></h2>
@@ -160,7 +138,7 @@
           <div class="contact-links">
             <a href="mailto:tim@beispiel.de" class="c-link">
               <span class="c-link-label">E-Mail</span>
-              tim@beispiel.de <!-- Anpassen -->
+              timheilemann2005@gmail.com <!-- Anpassen -->
             </a>
             <a href="https://github.com/dzz5xzkcmh-design" class="c-link">
               <span class="c-link-label">GitHub</span>
@@ -193,6 +171,13 @@
       <span class="footer-text">Portfolio</span>
     </footer>
   </div>
+
+  <script>
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+  </script>
 
 </body>
 </html>
