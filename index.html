@@ -6,13 +6,13 @@
   <title>Tim Heilemann — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <nav>
-   
+    <a href="#" class="nav-logo">Tim Heilemann</a>
     <ul class="nav-links">
       <li><a href="#projekte">Projekte</a></li>
       <li><a href="#about">Über mich</a></li>
@@ -22,14 +22,15 @@
 
   <section class="hero">
     <div class="hero-portrait">
-      <img src="images/DSCF2323.JPG" alt="Tim Heilemann">
+      <img src="images/DSCF2268.jpg" alt="Tim Heilemann">
     </div>
     <div class="hero-fade"></div>
     <div class="hero-fade-bottom"></div>
     <div class="hero-content">
+      <div class="hero-eyebrow">Bewerbung Praxissemester 2025</div>
       <h1>Hi –<br><em>Das bin ich.</em></h1>
       <p class="hero-sub">
-        Hi, ich bin Tim – 21, kreativer Kopf und studiere Medienkonzeption
+        Hi, ich bin Tim – 21, kreativer Kopf und Student der Medienkonzeption
         an der Hochschule Furtwangen. Ich mag es, Ideen zum Leben zu erwecken –
         ob Multiplayer-Game oder Sci-Fi-Trailer.
       </p>
@@ -40,50 +41,76 @@
     </div>
   </section>
 
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>Three.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>WebGL / GLSL</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>WebSockets</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>JavaScript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Medienkonzeption</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Hochschule Furtwangen</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Creative Coding</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Audiovisuelle Umgebungen</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Three.js</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>WebGL / GLSL</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>WebSockets</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>JavaScript</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Medienkonzeption</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Hochschule Furtwangen</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Creative Coding</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Audiovisuelle Umgebungen</span>
+    </div>
+  </div>
+
   <section class="section" id="projekte">
     <div class="wrap">
       <div class="section-eyebrow">Meine Projekte</div>
+      <div class="accordion">
 
-      <div class="project">
-        <div class="project-visual">
-          <img src="images/quiz-royale-teaser.jpg" alt="Quiz Royale Screenshot">
-        </div>
-        <div class="project-info">
-          <div class="project-num">01</div>
-          <span class="project-tag">Game Development</span>
-          <h3>Quiz Royale</h3>
-          <p>
-            Battle Royale, aber als Quiz. Multiplayer im Browser, 3D-Effekte über WebGL
-            und alles läuft in Echtzeit – gebaut mit Niklas, viel Kaffee und noch mehr Debugging.
-          </p>
-          <div class="tech-stack">
-            <span class="tech-pill">Three.js</span>
-            <span class="tech-pill">WebSockets</span>
-            <span class="tech-pill">WebGL / GLSL</span>
-            <span class="tech-pill">JavaScript</span>
+        <div class="accordion-item active" onclick="setActive(this)">
+          <div class="accordion-bg">
+            <img src="images/quiz-royale-teaser.jpg" alt="Quiz Royale">
           </div>
-          <a href="quiz-royale.html" class="project-link">Projekt ansehen →</a>
-        </div>
-      </div>
-
-      <div class="project flip">
-        <div class="project-visual">
-          <img src="images/loop-teaser.png" alt="Loop Teaser">
-        </div>
-        <div class="project-info">
-          <div class="project-num">02</div>
-          <span class="project-tag">Audiovisuelle Umgebungen</span>
-          <h3>Loop</h3>
-          <p>Zwei Wissenschaftler. Eine Maschine. Keine zweite Chance.</p>
-          <div class="tech-stack">
-            <span class="tech-pill">Videoproduktion</span>
-            <span class="tech-pill">Trailer</span>
-            <span class="tech-pill">Sci-Fi</span>
+          <div class="accordion-collapsed">
+            <span class="accordion-num">01</span>
+            <span class="accordion-title-small">Quiz Royale</span>
           </div>
-          <a href="loop.html" class="project-link">Projekt ansehen →</a>
+          <div class="accordion-content">
+            <span class="project-tag">Game Development</span>
+            <h3>Quiz Royale</h3>
+            <p>Battle Royale, aber als Quiz. Multiplayer im Browser, 3D-Effekte über WebGL und alles in Echtzeit – gebaut mit Niklas, viel Kaffee und noch mehr Debugging.</p>
+            <div class="tech-stack">
+              <span class="tech-pill">Three.js</span>
+              <span class="tech-pill">WebSockets</span>
+              <span class="tech-pill">WebGL / GLSL</span>
+              <span class="tech-pill">JavaScript</span>
+            </div>
+            <a href="quiz-royale.html" class="project-link">Projekt ansehen →</a>
+          </div>
         </div>
-      </div>
 
+        <div class="accordion-item" onclick="setActive(this)">
+          <div class="accordion-bg">
+            <img src="images/loop-teaser.png" alt="Loop">
+          </div>
+          <div class="accordion-collapsed">
+            <span class="accordion-num">02</span>
+            <span class="accordion-title-small">Loop</span>
+          </div>
+          <div class="accordion-content">
+            <span class="project-tag">Audiovisuelle Umgebungen</span>
+            <h3>Loop</h3>
+            <p>Zwei Wissenschaftler. Eine Maschine. Keine zweite Chance.</p>
+            <div class="tech-stack">
+              <span class="tech-pill">Videoproduktion</span>
+              <span class="tech-pill">Trailer</span>
+              <span class="tech-pill">Sci-Fi</span>
+            </div>
+            <a href="loop.html" class="project-link">Projekt ansehen →</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -92,7 +119,11 @@
       <div class="section-eyebrow">Über mich</div>
       <div class="about-grid">
         <div class="about-photo">
-        <img src="images/DSCF2268.jpg" alt="Tim Heilemann">
+          <!--
+            Foto einfügen:
+            <img src="images/portrait.jpg" alt="Tim Heilemann">
+            Danach SVG und Text löschen.
+          -->
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="8" r="4" stroke="#C2DDB9" stroke-width="1.5"/>
             <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#C2DDB9" stroke-width="1.5" stroke-linecap="round"/>
@@ -138,7 +169,7 @@
           <div class="contact-links">
             <a href="mailto:tim@beispiel.de" class="c-link">
               <span class="c-link-label">E-Mail</span>
-              timheilemann2005@gmail.com <!-- Anpassen -->
+              tim@beispiel.de <!-- Anpassen -->
             </a>
             <a href="https://github.com/dzz5xzkcmh-design" class="c-link">
               <span class="c-link-label">GitHub</span>
@@ -177,7 +208,11 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 80);
     });
-  </script>
 
+    function setActive(el) {
+      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+  </script>
 </body>
 </html>
