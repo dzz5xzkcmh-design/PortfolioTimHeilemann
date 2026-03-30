@@ -16,7 +16,7 @@
   --serif:'Instrument Serif',Georgia,serif;
   --display:'Bebas Neue',sans-serif;
 }
-.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
+.wrap{max-width:1600px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
 
 html{scroll-behavior:smooth}
 body{
@@ -27,7 +27,7 @@ body{
   min-height:100vh;
   padding-top:61px;
   position:relative;
-  padding:1rem;
+  padding:0.4rem;
 
 }
 
@@ -88,7 +88,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
   color:#fff;margin-bottom:1.5rem;
 }
 .hero h1 em{font-style:italic;color:var(--accent)}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,0.75);max-width:480px;margin-bottom:2.5rem;line-height:1.75;font-weight:400}
+.hero-sub{font-size:1.5rem;color:rgba(255,255,255,0.75);max-width:480px;margin-bottom:2.5rem;line-height:1.75;font-weight:400}
 .hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* BUTTONS */
@@ -151,7 +151,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 .about-text h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.1;color:var(--text);margin-bottom:1.5rem}
 .about-text h2 em{font-style:italic;color:var(--accent)}
 .about-text p{font-size:0.95rem;color:var(--muted-hi);line-height:1.85;margin-bottom:1rem}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.5rem}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:2.5rem; max-width: 600px;}
 .skill-item{padding:0.75rem 1rem;font-size:0.8rem;font-weight:500;color:var(--muted-hi);border-bottom:1px solid var(--border);border-right:1px solid var(--border);display:flex;align-items:center;gap:0.5rem;background:var(--bg-2)}
 .skill-item:nth-child(even){border-right:none}
 .skill-item:nth-last-child(-n+2){border-bottom:none}
@@ -174,8 +174,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 .fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
 
 /* FOOTER */
-footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display:flex;justify-content:space-between;align-items:center}
-.footer-text{font-size:0.75rem;color:var(--muted);letter-spacing:0.04em}
+footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display:flex;justify-content:space-between;align-items:center}
+.footer-text{font-size:1.2rem;color:var(--text);letter-spacing:0.04em}
+
+
 
 /* DETAIL PAGES */
 .project-hero{padding:calc(60px + 5rem) 0 4rem}
@@ -196,11 +198,11 @@ footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display
 .detail-block ul li{font-size:0.875rem;color:var(--muted-hi);display:flex;align-items:center;gap:0.6rem}
 .detail-block ul li::before{content:'';display:block;width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
 .highlight-section{padding:3rem 0}
-.highlight-section h2{font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2;color:var(--text);margin-bottom:1.25rem}
+.highlight-section h2{font-size:3rem;line-height:1.2;color:var(--text);margin-bottom:1.25rem}
 .highlight-section h2 em{font-style:italic;color:var(--accent)}
-.highlight-section p{font-size:0.95rem;color:var(--muted-hi);line-height:1.8;max-width:680px;margin-bottom:1rem}
+.highlight-section p{font-size:1.3rem;color:#E8E6E0;line-height:1.8;max-width:680px;margin-bottom:1rem}
 .film-quote{border-left:2px solid var(--accent);padding:1.25rem 2rem;margin:3rem 0;background:var(--accent-light);border-radius:0 4px 4px 0}
-.film-quote p{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:var(--text);line-height:1.5}
+.film-quote p{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:#003f47;line-height:1.5}
 .divider{border:none;border-top:1px solid var(--border);margin:3rem 0}
 .nav-projects{display:flex;justify-content:space-between;align-items:center;padding:2rem 0;border-top:1px solid var(--border);margin-top:4rem}
 .nav-projects a{font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
@@ -274,4 +276,11 @@ footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display
   .skill-item{border-right:none}
   .skill-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
   .skill-item:last-child{border-bottom:none}
+}
+.footer-full{
+  border-top:1px solid var(--border);
+  padding:2rem clamp(1.5rem,5vw,5rem);
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
