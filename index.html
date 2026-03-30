@@ -12,7 +12,6 @@
 <body>
 
   <nav>
-    <a href="#" class="nav-logo">Tim Heilemann</a>
     <ul class="nav-links">
       <li><a href="#projekte">Projekte</a></li>
       <li><a href="#about">Über mich</a></li>
@@ -22,12 +21,11 @@
 
   <section class="hero">
     <div class="hero-portrait">
-      <img src="images/DSCF2268.jpg" alt="Tim Heilemann">
+      <img src="images/DSCF2323.JPG" alt="Tim Heilemann">
     </div>
     <div class="hero-fade"></div>
     <div class="hero-fade-bottom"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Bewerbung Praxissemester 2025</div>
       <h1>Hi –<br><em>Das bin ich.</em></h1>
       <p class="hero-sub">
         Hi, ich bin Tim – 21, kreativer Kopf und Student der Medienkonzeption
@@ -67,46 +65,25 @@
       <div class="section-eyebrow">Meine Projekte</div>
       <div class="accordion">
 
-        <div class="accordion-item active" onclick="setActive(this)">
+      <div class="accordion-item active" onclick="window.location='quiz-royale.html'">
           <div class="accordion-bg">
             <img src="images/quiz-royale-teaser.jpg" alt="Quiz Royale">
           </div>
-          <div class="accordion-collapsed">
+          <div class="accordion-overlay">
             <span class="accordion-num">01</span>
-            <span class="accordion-title-small">Quiz Royale</span>
-          </div>
-          <div class="accordion-content">
-            <span class="project-tag">Game Development</span>
             <h3>Quiz Royale</h3>
-            <p>Battle Royale, aber als Quiz. Multiplayer im Browser, 3D-Effekte über WebGL und alles in Echtzeit – gebaut mit Niklas, viel Kaffee und noch mehr Debugging.</p>
-            <div class="tech-stack">
-              <span class="tech-pill">Three.js</span>
-              <span class="tech-pill">WebSockets</span>
-              <span class="tech-pill">WebGL / GLSL</span>
-              <span class="tech-pill">JavaScript</span>
-            </div>
-            <a href="quiz-royale.html" class="project-link">Projekt ansehen →</a>
+            <span class="accordion-cta">Mehr erfahren →</span>
           </div>
         </div>
 
-        <div class="accordion-item" onclick="setActive(this)">
+        <div class="accordion-item" onclick="window.location='loop.html'">
           <div class="accordion-bg">
             <img src="images/loop-teaser.png" alt="Loop">
           </div>
-          <div class="accordion-collapsed">
+          <div class="accordion-overlay">
             <span class="accordion-num">02</span>
-            <span class="accordion-title-small">Loop</span>
-          </div>
-          <div class="accordion-content">
-            <span class="project-tag">Audiovisuelle Umgebungen</span>
             <h3>Loop</h3>
-            <p>Zwei Wissenschaftler. Eine Maschine. Keine zweite Chance.</p>
-            <div class="tech-stack">
-              <span class="tech-pill">Videoproduktion</span>
-              <span class="tech-pill">Trailer</span>
-              <span class="tech-pill">Sci-Fi</span>
-            </div>
-            <a href="loop.html" class="project-link">Projekt ansehen →</a>
+            <span class="accordion-cta">Mehr erfahren →</span>
           </div>
         </div>
 
@@ -119,16 +96,7 @@
       <div class="section-eyebrow">Über mich</div>
       <div class="about-grid">
         <div class="about-photo">
-          <!--
-            Foto einfügen:
-            <img src="images/portrait.jpg" alt="Tim Heilemann">
-            Danach SVG und Text löschen.
-          -->
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="8" r="4" stroke="#C2DDB9" stroke-width="1.5"/>
-            <path d="M4 20c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="#C2DDB9" stroke-width="1.5" stroke-linecap="round"/>
-          </svg>
-          Foto einfügen
+       <img src="images/DSCF2268.jpg" alt="Tim Heilemann">
         </div>
         <div class="about-text">
           <h2>Kreativer Kopf<br>mit <em>Spaß an der Arbeit.</em></h2>
@@ -208,11 +176,6 @@
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 80);
     });
-
-    function setActive(el) {
-      document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-      el.classList.add('active');
-    }
   </script>
 </body>
 </html>

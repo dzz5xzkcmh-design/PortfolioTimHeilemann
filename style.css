@@ -1,28 +1,41 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#F2F0EB;
+  --bg:#FFF6E9;
   --bg-2:#FFFFFF;
   --bg-3:#E8E6E0;
   --border:#D8D5CE;
   --border-hi:#B8B5AE;
-  --text:#1A1A18;
+  --text:#FFBD76;
   --muted:#9A9890;
   --muted-hi:#5A5A55;
-  --accent:#3A7D2C;
+  --accent:#003F47;
   --accent-light:#EAF3E6;
   --accent-dim:#C2DDB9;
   --sans:'Syne',sans-serif;
   --serif:'Instrument Serif',Georgia,serif;
   --display:'Bebas Neue',sans-serif;
 }
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(1.5rem,5vw,5rem)}
 
 html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;min-height:100vh}
+body{
+  font-family:var(--sans);
+  background:#0A171D;
+  font-size:16px;
+  line-height:1.6;
+  min-height:100vh;
+  padding-top:61px;
+  position:relative;
+  padding:1rem;
+
+}
+
+
 
 /* NAV */
 nav{
-  position:fixed;top:0;left:0;right:0;height:60px;
+  position:fixed;top:0;left:0;right:0;height:85px;
   background:transparent;
   z-index:100;
   display:flex;align-items:center;justify-content:space-between;
@@ -37,7 +50,7 @@ nav.scrolled{
 .nav-logo{font-family:var(--sans);font-weight:800;font-size:0.9rem;letter-spacing:0.1em;text-transform:uppercase;color:#fff;text-decoration:none;transition:color 0.3s}
 nav.scrolled .nav-logo{color:var(--text)}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:0.8rem;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s}
+.nav-links a{font-size:1.2rem;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.8);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:#fff}
 nav.scrolled .nav-links a{color:var(--muted)}
 nav.scrolled .nav-links a:hover{color:var(--text)}
@@ -56,10 +69,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 }
 .hero-content{
   position:relative;z-index:2;
-  padding:0 clamp(1.5rem,5vw,5rem) 5rem;
+  padding:0 clamp(1.5rem,5vw,5rem) 4rem;
   width:100%;
   max-width:1280px;
-  margin:0 auto;
+  
 }
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:0.6rem;
@@ -100,7 +113,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 
 /* SECTIONS */
 .section{padding:7rem 0}
-.section-eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:0.75rem;margin-bottom:4rem}
+.section-eyebrow{font-size:1.5rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:0.75rem;margin-bottom:4rem}
 .section-eyebrow::after{content:'';flex:1;max-width:40px;height:1px;background:var(--border-hi)}
 
 /* PROJECT CARDS – full width image, text below */
@@ -132,8 +145,8 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 .project-link:hover{gap:0.8rem}
 
 /* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:6rem;align-items:center}
-.about-photo{border-radius:4px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;color:var(--muted);font-size:0.75rem}
+.about-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:start}
+.about-photo{border-radius:4px;overflow:hidden;width:220px;background:var(--bg-3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;color:var(--muted);font-size:0.75rem}
 .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .about-text h2{font-size:clamp(2rem,4vw,3.25rem);line-height:1.1;color:var(--text);margin-bottom:1.5rem}
 .about-text h2 em{font-style:italic;color:var(--accent)}
@@ -174,7 +187,7 @@ footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display
 .project-hero-desc{font-size:1.05rem;color:var(--muted-hi);max-width:600px;line-height:1.75;margin-bottom:2rem}
 .project-hero-links{display:flex;gap:1rem;flex-wrap:wrap}
 .video-section{padding:3rem 0}
-.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;border:1px solid var(--border);background:var(--bg-3)}
+.video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:4px;border:none;background:#000}
 .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none}
 .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:4rem 0}
 .detail-block{border:1px solid var(--border);border-radius:4px;padding:2rem;background:var(--bg-2)}
@@ -194,47 +207,49 @@ footer{border-top:1px solid var(--border);padding:2rem 0;margin-top:5rem;display
 .nav-projects a:hover{color:var(--accent)}
 
 /* ACCORDION PROJECTS */
-.accordion{display:flex;gap:0;height:520px;border-radius:6px;overflow:hidden;border:1px solid var(--border)}
+.accordion{display:flex;gap:0;height:420px;border-radius:6px;overflow:hidden;border:1px solid var(--border);max-width:900px;margin:0 auto}
 .accordion-item{
   position:relative;overflow:hidden;cursor:pointer;
   flex:1;transition:flex 0.6s cubic-bezier(0.4,0,0.2,1);
-  min-width:80px;
+  min-width:70px;
 }
-.accordion-item.active{flex:3}
+.accordion-item:hover{flex:2.5}
 .accordion-bg{position:absolute;inset:0}
 .accordion-bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
-.accordion-item.active .accordion-bg img{transform:scale(1.03)}
-.accordion-bg::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+.accordion-item:hover .accordion-bg img{transform:scale(1.05)}
+.accordion-item:not(:last-child){border-right:1px solid rgba(255,255,255,0.15)}
+
+.accordion-overlay{
+  position:absolute;inset:0;z-index:2;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;
+  background:rgba(0,0,0,0.0);
+  transition:background 0.4s;
+  padding:2rem;
 }
-.accordion-collapsed{
-  position:absolute;top:0;bottom:0;left:0;right:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:1rem;z-index:2;
-  opacity:1;transition:opacity 0.3s;
+.accordion-item:hover .accordion-overlay{background:rgba(0,0,0,0.55)}
+
+.accordion-num{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.15em;
+  color:rgba(255,255,255,0);text-transform:uppercase;
+  transition:color 0.3s;
 }
-.accordion-item.active .accordion-collapsed{opacity:0;pointer-events:none}
-.accordion-num{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;color:rgba(255,255,255,0.6);text-transform:uppercase}
-.accordion-title-small{
-  font-family:var(--display);font-size:1.5rem;color:#fff;
-  writing-mode:vertical-rl;text-orientation:mixed;
-  letter-spacing:0.05em;
+.accordion-item:hover .accordion-num{color:rgba(255,255,255,0.6)}
+
+.accordion-overlay h3{
+  font-family:var(--display);font-size:2.5rem;
+  color:rgba(255,255,255,0);text-align:center;
+  transition:color 0.3s;letter-spacing:0.05em;
 }
-.accordion-content{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:2.5rem;z-index:2;
-  opacity:0;transform:translateY(12px);
-  transition:opacity 0.4s 0.2s, transform 0.4s 0.2s;
-  pointer-events:none;
+.accordion-item:hover .accordion-overlay h3{color:#fff}
+
+.accordion-cta{
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(255,255,255,0);
+  border:1px solid rgba(255,255,255,0);
+  padding:0.5rem 1.25rem;border-radius:2px;
+  transition:color 0.3s 0.1s, border-color 0.3s 0.1s;
 }
-.accordion-item.active .accordion-content{opacity:1;transform:translateY(0);pointer-events:auto}
-.accordion-content .project-tag{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff}
-.accordion-content h3{color:#fff;font-size:2.5rem;margin:0.5rem 0 0.75rem}
-.accordion-content p{color:rgba(255,255,255,0.8);font-size:0.875rem;line-height:1.65;margin-bottom:1.25rem;max-width:400px}
-.accordion-content .tech-pill{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7)}
-.accordion-content .project-link{color:#fff;margin-top:1.25rem;display:inline-flex}
-.accordion-item:not(:last-child){border-right:1px solid rgba(255,255,255,0.1)}
+.accordion-item:hover .accordion-cta{color:#fff;border-color:rgba(255,255,255,0.6)}
 
 /* RESPONSIVE */
 @media(max-width:768px){
