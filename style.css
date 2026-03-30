@@ -42,7 +42,7 @@ nav{
   padding:0 clamp(1.5rem,5vw,5rem);
   transition:background 0.3s, border-color 0.3s;
 }
-nav.scrolled{-text
+nav.scrolled{
   background:rgba(242,240,235,0.95);
   backdrop-filter:blur(16px);
   border-bottom:1px solid var(--border);
@@ -185,7 +185,7 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
 .back-link:hover{color:var(--text)}
 .project-hero-meta{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
 .project-hero h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.05;letter-spacing:-0.01em;color:var(--text);margin-bottom:1.5rem}
-.project-hero h1 em{font-style:italic;color:var(--accent)}
+.project-hero h1 em{font-style:italic;color:#081935}
 .project-hero-desc{font-size:1.05rem;color:#E8E6E0;max-width:600px;line-height:1.75;margin-bottom:2rem}
 .project-hero-links{display:flex;gap:1rem;flex-wrap:wrap}
 .video-section{padding:3rem 0}
@@ -199,7 +199,7 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
 .detail-block ul li::before{content:'';display:block;width:4px;height:4px;background:var(--accent);border-radius:50%;flex-shrink:0}
 .highlight-section{padding:3rem 0}
 .highlight-section h2{font-size:3rem;line-height:1.2;color:var(--text);margin-bottom:1.25rem}
-.highlight-section h2 em{font-style:italic;color:var(--accent)}
+.highlight-section h2 em{font-style:italic;color:#081935}
 .highlight-section p{font-size:1.3rem;color:#E8E6E0;line-height:1.8;max-width:680px;margin-bottom:1rem}
 .film-quote{border-left:2px solid var(--accent);padding:1.25rem 2rem;margin:3rem 0;background:var(--accent-light);border-radius:0 4px 4px 0}
 .film-quote p{font-family:var(--serif);font-size:1.25rem;font-style:italic;color:#003f47;line-height:1.5}
