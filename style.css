@@ -169,7 +169,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 .contact-form{display:flex;flex-direction:column;gap:1.25rem}
 .fg{display:flex;flex-direction:column;gap:0.4rem}
 .fg label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
-.fg input,.fg textarea{font-family:var(--sans);font-size:0.875rem;color:var(--text);background:var(--bg-2);border:1px solid var(--border);border-radius:2px;padding:0.875rem 1rem;outline:none;resize:none;transition:border-color 0.2s}
+.fg input,.fg textarea{font-family:var(--sans);font-size:0.875rem;color:#000;background:var(--bg-2);border:1px solid var(--border);border-radius:2px;padding:0.875rem 1rem;outline:none;resize:none;transition:border-color 0.2s}
 .fg input:focus,.fg textarea:focus{border-color:var(--accent)}
 .fg input::placeholder,.fg textarea::placeholder{color:var(--muted)}
 
