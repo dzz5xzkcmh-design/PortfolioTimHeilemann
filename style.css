@@ -25,9 +25,10 @@ body{
   font-size:16px;
   line-height:1.6;
   min-height:100vh;
+  padding:0.4rem;
   padding-top:61px;
   position:relative;
-  padding:0.4rem;
+  
 
 }
 
