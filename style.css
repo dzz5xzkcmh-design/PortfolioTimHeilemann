@@ -276,6 +276,8 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
   .skill-item{border-right:none}
   .skill-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
   .skill-item:last-child{border-bottom:none}
+  .nav-projects{flex-direction:column;gap:0.75rem;align-items:flex-start}
+  .nav-projects a{font-size:0.75rem;font-family:var(--sans)}
 }
 .footer-full{
   border-top:1px solid var(--border);
