@@ -99,9 +99,9 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
   border-radius:2px;text-decoration:none;
   transition:all 0.2s;cursor:pointer;border:1px solid transparent;
 }
-.btn-green{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-green{background:#081935;color:#fff;}
 .btn-green:hover{background:#FFBD76}
-.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,0.5)}
+.btn-ghost{background:transparent;color:#fff;}
 .btn-ghost:hover{border-color:#fff}
 
 /* MARQUEE */
