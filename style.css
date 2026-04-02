@@ -163,9 +163,9 @@ h1,h2,h3{font-family:var(--display);letter-spacing:0.02em}
 .contact-info h2 em{font-style:italic;color:#081935}
 .contact-info p{font-size:1.2rem;color:#E8E6E0;margin-bottom:2rem;line-height:1.85}
 .contact-links{display:flex;flex-direction:column}
-.c-link{display:grid;grid-template-columns:70px 1fr;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);font-size:0.875rem;transition:color 0.2s}
-.c-link:hover{color:var(--accent)}
-.c-link-label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+.c-link{display:grid;grid-template-columns:90px 1fr;align-items:center;padding:3rem 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);font-size:0.875rem;transition:color 0.2s}
+.c-link:hover{color:#081935}
+.c-link-label{font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#081935}
 .contact-form{display:flex;flex-direction:column;gap:1.25rem}
 .fg{display:flex;flex-direction:column;gap:0.4rem}
 .fg label{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
