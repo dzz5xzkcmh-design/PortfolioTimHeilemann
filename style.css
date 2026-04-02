@@ -279,20 +279,6 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
   .footer-full{padding:1.5rem 1rem}
 }
 
-@media(max-width:480px){
-  .nav-links{display:none}
-  .hero{min-height:100svh}
-  .hero h1{font-size:clamp(2rem,10vw,3rem)}
-  .hero-sub{font-size:0.9rem}
-  .hero-ctas{flex-direction:column}
-  .section{padding:4rem 0}
-  .project-info{padding:1.75rem}
-  .about-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .skill-item{border-right:none}
-  .skill-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
-  .skill-item:last-child{border-bottom:none}
-}
 .footer-full{
   border-top:1px solid var(--border);
   padding:2rem clamp(1.5rem,5vw,5rem);
