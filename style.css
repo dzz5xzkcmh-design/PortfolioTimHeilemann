@@ -254,31 +254,29 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
 .accordion-item:hover .accordion-cta{color:#fff;border-color:rgba(255,255,255,0.6)}
 
 /* RESPONSIVE */
-@media(max-width:480px){
-  body{padding:0.3rem;padding-top:60px}
-  .nav-links{display:none}
-  .hero{min-height:100svh}
-  .hero h1{font-size:2.5rem}
-  .hero-sub{font-size:0.9rem;line-height:1.5}
-  .hero-ctas{flex-direction:column}
-  .btn{text-align:center;width:100%}
-  .section{padding:3rem 0}
-  .accordion{flex-direction:column;height:auto}
-  .accordion-item{min-width:unset;height:280px}
-  .accordion-item:hover{flex:unset}
-  .about-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
-  .skill-item{border-right:none}
-  .skill-item:last-child{border-bottom:none}
-  .nav-projects{flex-direction:column;gap:0.75rem;align-items:flex-start}
-  .nav-projects a{font-size:0.75rem}
+@media(max-width:768px){
+  .project,.project.flip{grid-template-columns:1fr;direction:ltr}
+  .project-visual{border-right:none;border-bottom:1px solid var(--border);aspect-ratio:16/9}
+  .project.flip .project-visual{border-left:none;border-bottom:1px solid var(--border)}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
   .detail-grid{grid-template-columns:1fr}
-  .project-hero h1{font-size:2.5rem}
-  .highlight-section p{font-size:0.9rem;line-height:1.6}
-  .footer-full{padding:1.5rem 1rem}
+  .hero h1{font-size:clamp(2.5rem,9vw,4rem)}
 }
 
+@media(max-width:480px){
+  .nav-links{display:none}
+  .hero{min-height:100svh}
+  .hero h1{font-size:clamp(2rem,10vw,3rem)}
+  .hero-sub{font-size:0.9rem}
+  .hero-ctas{flex-direction:column}
+  .section{padding:4rem 0}
+  .project-info{padding:1.75rem}
+  .about-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .skill-item{border-right:none}
+  .skill-item:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+  .skill-item:last-child{border-bottom:none}
+}
 .footer-full{
   border-top:1px solid var(--border);
   padding:2rem clamp(1.5rem,5vw,5rem);
