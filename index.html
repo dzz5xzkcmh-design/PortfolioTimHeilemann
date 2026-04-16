@@ -12,8 +12,13 @@
 </head>
 <body>
 
+  <div class="cursor" id="cursor"></div>
+
   <nav>
-    <ul class="nav-links">
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="#projekte">Projekte</a></li>
       <li><a href="#about">Über mich</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
@@ -67,7 +72,6 @@
             <img src="images/quiz-royale-teaser.jpg" alt="Quiz Royale">
           </div>
           <div class="accordion-overlay">
-            <span class="accordion-num">01</span>
             <h3>Quiz Royale</h3>
             <span class="accordion-cta">Mehr erfahren →</span>
           </div>
@@ -78,7 +82,6 @@
             <img src="images/loop-teaser.png" alt="Loop">
           </div>
           <div class="accordion-overlay">
-            <span class="accordion-num">02</span>
             <h3>Loop</h3>
             <span class="accordion-cta">Mehr erfahren →</span>
           </div>
@@ -86,10 +89,9 @@
 
         <div class="accordion-item" onclick="window.location='traildiary.html'">
           <div class="accordion-bg">
-            <img src="images/traildiary.png" alt="Traildiary">
+            <img src="images/traildiary1.png" alt="Traildiary">
           </div>
           <div class="accordion-overlay">
-            <span class="accordion-num">03</span>
             <h3>Traildiary</h3>
             <span class="accordion-cta">Mehr erfahren →</span>
           </div>
@@ -100,7 +102,6 @@
             <img src="images/Reaper.jpg" alt="Lifted">
           </div>
           <div class="accordion-overlay">
-            <span class="accordion-num">04</span>
             <h3>Lifted</h3>
             <span class="accordion-cta">Mehr erfahren →</span>
           </div>
@@ -189,10 +190,146 @@
     <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+
   <script>
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
+    // Lenis smooth scroll
+    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  </script>
+
+  <script>
+    // Three.js particles
+    const canvas3d = document.getElementById('hero-canvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.z = 5;
+
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas3d, alpha: true, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    const count = 130;
+    const spread = 9;
+    const positions = new Float32Array(count * 3);
+    const velocities = [];
+
+    for (let i = 0; i < count; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * spread * (window.innerWidth / window.innerHeight);
+      positions[i * 3 + 1] = (Math.random() - 0.5) * spread;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 2;
+      velocities.push({ x: (Math.random() - 0.5) * 0.003, y: (Math.random() - 0.5) * 0.003 });
+    }
+
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const mat = new THREE.PointsMaterial({ color: 0x4ECDC4, size: 0.035, transparent: true, opacity: 0.65 });
+    const points = new THREE.Points(geo, mat);
+    scene.add(points);
+
+    let mx = 0, my = 0;
+    document.addEventListener('mousemove', e => {
+      mx = (e.clientX / window.innerWidth - 0.5);
+      my = -(e.clientY / window.innerHeight - 0.5);
+    });
+
+    (function animate() {
+      requestAnimationFrame(animate);
+      const pos = geo.attributes.position.array;
+      const asp = window.innerWidth / window.innerHeight;
+      for (let i = 0; i < count; i++) {
+        pos[i * 3]     += velocities[i].x;
+        pos[i * 3 + 1] += velocities[i].y;
+        if (pos[i * 3] >  spread * asp / 2) pos[i * 3] = -spread * asp / 2;
+        if (pos[i * 3] < -spread * asp / 2) pos[i * 3] =  spread * asp / 2;
+        if (pos[i * 3 + 1] >  spread / 2)  pos[i * 3 + 1] = -spread / 2;
+        if (pos[i * 3 + 1] < -spread / 2)  pos[i * 3 + 1] =  spread / 2;
+      }
+      geo.attributes.position.needsUpdate = true;
+      camera.position.x += (mx * 0.4 - camera.position.x) * 0.04;
+      camera.position.y += (my * 0.25 - camera.position.y) * 0.04;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    })();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.classList.add('active');
+      });
+      document.querySelectorAll('a, button, .accordion-item, .screenshot-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+      });
+    }
+
+    // Parallax
+    const heroPortrait = document.querySelector('.hero-portrait');
+    if (heroPortrait) {
+      window.addEventListener('scroll', () => {
+        heroPortrait.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+      }, { passive: true });
+    }
+  </script>
+
+  <script>
+    // Scroll animations
+    const animTargets = [
+      '.section-eyebrow','.about-grid','.contact-info','.contact-form',
+      '.accordion-item','.highlight-section h2','.highlight-section p',
+      '.detail-block','.screenshot-item','.lifted-split-text','.lifted-split-img',
+      '.nav-projects','.film-quote','.project-hero-desc','.project-hero-links',
+      '.project-hero-meta','.back-link'
+    ];
+    animTargets.forEach(sel => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.classList.add('fade-in');
+        if (i % 4 === 1) el.classList.add('delay-1');
+        if (i % 4 === 2) el.classList.add('delay-2');
+        if (i % 4 === 3) el.classList.add('delay-3');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('nav-links');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!nav.contains(e.target)) {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      }
     });
   </script>
 </body>

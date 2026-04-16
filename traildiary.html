@@ -12,8 +12,13 @@
 </head>
 <body>
 
-  <nav class="scrolled">
-    <ul class="nav-links">
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html#projekte">Projekte</a></li>
       <li><a href="index.html#about">Über mich</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -22,7 +27,7 @@
 
   <section class="project-hero">
     <div class="project-hero-bg">
-      <img src="images/traildiary.png" alt="" class="blurred">
+      <img src="images/traildiary3.png" alt="" style="object-position:20% center">
     </div>
     <div class="wrap">
       <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
@@ -37,14 +42,6 @@
       <div class="project-hero-links">
         <a href="https://dzz5xzkcmh-design.github.io/traildiary/" target="_blank" class="btn btn-green">Live-App öffnen</a>
         <a href="index.html" class="btn btn-ghost">← Zurück</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="video-section">
-    <div class="wrap">
-      <div class="project-img-wrap">
-        <img src="images/traildiary.png" alt="Traildiary App Screenshot">
       </div>
     </div>
   </section>
@@ -66,6 +63,24 @@
       </p>
     </div>
   </section>
+
+  <section class="screenshots-section">
+    <div class="wrap">
+      <div class="screenshots-grid">
+        <div class="screenshot-item">
+          <img src="images/traildiary1.png" alt="Traildiary Screenshot 1">
+        </div>
+        <div class="screenshot-item">
+          <img src="images/traildiary2.png" alt="Traildiary Screenshot 2">
+        </div>
+        <div class="screenshot-item">
+          <img src="images/traildiary3.png" alt="Traildiary Screenshot 3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
 
   <div class="wrap">
     <div class="detail-grid">
@@ -99,9 +114,101 @@
     </div>
   </div>
 
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+
   <footer class="footer-full">
     <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  </script>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        cursor.classList.add('active');
+      });
+      document.querySelectorAll('a, button, .screenshot-item').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+      });
+    }
+    const heroBg = document.querySelector('.project-hero-bg');
+    if (heroBg) {
+      window.addEventListener('scroll', () => {
+        heroBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+      }, { passive: true });
+    }
+  </script>
+
+  <script>
+    const animTargets = [
+      '.section-eyebrow','.about-grid','.contact-info','.contact-form',
+      '.accordion-item','.highlight-section h2','.highlight-section p',
+      '.detail-block','.screenshot-item','.lifted-split-text','.lifted-split-img',
+      '.nav-projects','.film-quote','.project-hero-desc','.project-hero-links',
+      '.project-hero-meta','.back-link'
+    ];
+    animTargets.forEach(sel => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.classList.add('fade-in');
+        if (i % 4 === 1) el.classList.add('delay-1');
+        if (i % 4 === 2) el.classList.add('delay-2');
+        if (i % 4 === 3) el.classList.add('delay-3');
+      });
+    });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('nav-links');
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', e => {
+      if (!document.querySelector('nav').contains(e.target)) {
+        burger.classList.remove('open');
+        navLinks.classList.remove('open');
+      }
+    });
+  </script>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    document.querySelectorAll('.screenshot-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
