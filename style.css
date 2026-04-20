@@ -243,7 +243,7 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
 .nav-projects a:hover{color:#E8E6E0}
 
 /* ACCORDION PROJECTS */
-.accordion{display:flex;gap:0;height:700px;border-radius:6px;overflow:hidden;border:1px solid var(--border);max-width:1900px;margin:0 auto}
+.accordion{display:flex;gap:0;height:700px;border-radius:6px;overflow:hidden;max-width:1900px;margin:0 auto}
 .accordion-item{
   position:relative;overflow:hidden;cursor:pointer;
   flex:1;transition:flex 0.6s cubic-bezier(0.4,0,0.2,1);
@@ -253,7 +253,7 @@ footer{border-top:1px solid var(--border);padding:1rem 0;margin-top:5rem;display
 .accordion-bg{position:absolute;inset:0}
 .accordion-bg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
 .accordion-item:hover .accordion-bg img{transform:scale(1.05)}
-.accordion-item:not(:last-child){border-right:1px solid rgba(255,255,255,0.15)}
+.accordion-item:not(:last-child){border-right:none}
 
 .accordion-overlay{
   position:absolute;inset:0;z-index:2;
@@ -333,12 +333,18 @@ body::after{
 .hero-ctas{animation:heroIn 1s cubic-bezier(0.16,1,0.3,1) 0.48s both}
 
 /* SCROLL ANIMATIONS */
-.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 .fade-in.delay-1{transition-delay:0.1s}
 .fade-in.delay-2{transition-delay:0.2s}
 .fade-in.delay-3{transition-delay:0.3s}
 .fade-in.delay-4{transition-delay:0.4s}
+
+/* Accordion gets a softer, more staggered entrance */
+.accordion-item.fade-in{transform:translateY(14px);transition:opacity 1s cubic-bezier(0.16,1,0.3,1),transform 1s cubic-bezier(0.16,1,0.3,1)}
+.accordion-item.fade-in.delay-1{transition-delay:0.18s}
+.accordion-item.fade-in.delay-2{transition-delay:0.36s}
+.accordion-item.fade-in.delay-3{transition-delay:0.54s}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s}
