@@ -105,13 +105,6 @@
     <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script>
-    const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
-    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-  </script>
-
   <script>
     const cursor = document.getElementById('cursor');
     if (!window.matchMedia('(pointer: coarse)').matches) {
