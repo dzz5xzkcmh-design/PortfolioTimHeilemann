@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-3uNO7Q9orbHVQpVFnERPh2AQ2GODwsncAkab+Zj6JZU=' 'sha256-j0DNWieT4oSqubKOTMJNWKijW5efYRNUbgRBN3hQaLQ=' 'sha256-pWNtvjYv8PVyHSHaNMtODrud6f0LUVbjruHA9/ElZSs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://player.vimeo.com; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-4DdOSDVS6PfsBevSkWf4uGdf+ib3LCowgQAv6ht53vQ=' 'sha256-j0DNWieT4oSqubKOTMJNWKijW5efYRNUbgRBN3hQaLQ=' 'sha256-pWNtvjYv8PVyHSHaNMtODrud6f0LUVbjruHA9/ElZSs='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://player.vimeo.com; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
   <title>Tim Heilemann — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +66,8 @@
   <section class="section" id="projekte">
     <div class="wrap">
       <div class="section-eyebrow">Meine Projekte</div>
-      <div class="accordion">
+    </div>
+    <div class="accordion">
 
         <a class="accordion-item active" href="quiz-royale.html">
           <div class="accordion-bg">
@@ -109,7 +110,6 @@
         </a>
 
       </div>
-    </div>
   </section>
 
   <section class="section" id="about">
@@ -209,8 +209,15 @@
     // Parallax
     const heroPortrait = document.querySelector('.hero-portrait');
     if (heroPortrait) {
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        heroPortrait.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            heroPortrait.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
       }, { passive: true });
     }
   </script>
