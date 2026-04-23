@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Z3JA8ULCWfTIREPO9R5zlG2Y/YiuwWKBPBCeJfXFWsY=' 'sha256-rJ27UGT8lFh230ubEpa9TjvPf+lhPR6WRuaEHFXDPiQ=' 'sha256-xspTjvQxu+ITfzmyH1lFc9UcIqU3btnjxZij3lJHb8U=' 'sha256-BM6s7b7WjtEouqWe3UihrkzhMT1sAN2a7H/Sg7awqq0='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://player.vimeo.com; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://player.vimeo.com; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
   <title>Traildiary — Tim Heilemann</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,85 +124,6 @@
     <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
   </footer>
 
-  <script>
-    const cursor = document.getElementById('cursor');
-    if (!window.matchMedia('(pointer: coarse)').matches) {
-      document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        cursor.classList.add('active');
-      });
-      document.querySelectorAll('a, button, .screenshot-item').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-      });
-    }
-    const heroBg = document.querySelector('.project-hero-bg');
-    if (heroBg) {
-      window.addEventListener('scroll', () => {
-        heroBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
-      }, { passive: true });
-    }
-  </script>
-
-  <script>
-    const animTargets = [
-      '.section-eyebrow','.about-grid','.contact-info','.contact-form',
-      '.accordion-item','.highlight-section h2','.highlight-section p',
-      '.detail-block','.screenshot-item','.lifted-split-text','.lifted-split-img',
-      '.nav-projects','.film-quote','.project-hero-desc','.project-hero-links',
-      '.project-hero-meta','.back-link'
-    ];
-    animTargets.forEach(sel => {
-      document.querySelectorAll(sel).forEach((el, i) => {
-        el.classList.add('fade-in');
-        if (i % 4 === 1) el.classList.add('delay-1');
-        if (i % 4 === 2) el.classList.add('delay-2');
-        if (i % 4 === 3) el.classList.add('delay-3');
-      });
-    });
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
-
-  <script>
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('nav-links');
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      navLinks.classList.toggle('open');
-    });
-    document.addEventListener('click', e => {
-      if (!document.querySelector('nav').contains(e.target)) {
-        burger.classList.remove('open');
-        navLinks.classList.remove('open');
-      }
-    });
-  </script>
-
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    document.querySelectorAll('.screenshot-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
