@@ -1,19 +1,11 @@
-// Custom cursor with lerp lag
+// Custom cursor – direct, no lerp
 const cursor = document.getElementById('cursor');
 if (cursor && !window.matchMedia('(pointer: coarse)').matches) {
-  let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
   document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
     cursor.classList.add('active');
   });
-  (function animate() {
-    curX += (mouseX - curX) * 0.1;
-    curY += (mouseY - curY) * 0.1;
-    cursor.style.left = curX + 'px';
-    cursor.style.top = curY + 'px';
-    requestAnimationFrame(animate);
-  })();
   document.querySelectorAll('a, button, .project-card, .screenshot-item').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
