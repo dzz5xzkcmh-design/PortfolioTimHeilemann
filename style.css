@@ -628,3 +628,13 @@ body::after {
 .swatch-info{display:flex;flex-direction:column;gap:2px;padding:10px;font-size:.75rem;color:var(--text)}
 .swatch-info span:last-child{color:var(--muted)}
 @media (max-width:768px){.swatches{grid-template-columns:repeat(3,1fr)}}
+
+/* Videoporträt in Schwarz-Weiß */
+.card-video .card-bg {
+  filter: grayscale(100%);
+  transition: filter 0.4s ease;
+
+}
+.hero-video .project-hero-bg img {
+  filter: grayscale(100%) brightness(0.5) !important;
+}
