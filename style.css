@@ -225,8 +225,8 @@ nav.scrolled {
 }
 .card-quiz-royale { grid-column: 1 / 3; }
 .card-loop        { grid-column: 3; }
-.card-traildiary  { grid-column: 1; }
-.card-lifted      { grid-column: 2 / 4; }
+.card-video  { grid-column: 1; }
+.card-smartsip      { grid-column: 2 / 4; }
 
 .project-card {
   position: relative; overflow: hidden;
@@ -588,8 +588,8 @@ body::after {
   }
   .card-quiz-royale { grid-column: 1 / 3; }
   .card-loop        { grid-column: 1; }
-  .card-traildiary  { grid-column: 2; }
-  .card-lifted      { grid-column: 1 / 3; }
+  .card-video  { grid-column: 2; }
+  .card-smartsip      { grid-column: 1 / 3; }
 }
 
 @media (max-width: 768px) {
@@ -611,8 +611,8 @@ body::after {
   }
   .card-quiz-royale,
   .card-loop,
-  .card-traildiary,
-  .card-lifted { grid-column: 1; height: 260px; }
+  .card-vidoe,
+  .card-smartsip { grid-column: 1; height: 260px; }
   .hero h1 { font-size: clamp(3.5rem, 14vw, 6rem); }
   .hero-sub { font-size: 0.9rem; }
   .section { padding: 5rem 0; }
@@ -620,3 +620,11 @@ body::after {
 .card-quiz-royale .card-bg {
   object-position: center 18%;
 }
+
+/* ── SmartSip Farbfelder ── */
+.swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:2rem}
+.swatch{border:1px solid rgba(240,237,230,.12);border-radius:8px;overflow:hidden;background:var(--bg-2)}
+.swatch-color{height:80px}
+.swatch-info{display:flex;flex-direction:column;gap:2px;padding:10px;font-size:.75rem;color:var(--text)}
+.swatch-info span:last-child{color:var(--muted)}
+@media (max-width:768px){.swatches{grid-template-columns:repeat(3,1fr)}}

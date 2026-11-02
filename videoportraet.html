@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube-nocookie.com; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
+  <title>Porträt Phillip — Tim Heilemann</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#projekte">Projekte</a></li>
+      <li><a href="index.html#about">Über mich</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/videoportraet-teaser.jpg" alt="" class="centered" style="filter:brightness(0.5)">
+    </div>
+    <div class="wrap">
+      <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+      <div class="project-hero-meta">
+        <span class="project-tag">Film</span>
+        <span class="project-tag">Kreativlabor</span>
+      </div>
+      <h1>Porträt <em>Phillip</em></h1>
+      <p class="project-hero-desc">
+        Ein Videoporträt über einen Mitstudenten und Freund – entstanden im Kurs Kreativlabor.
+      </p>
+      <div class="project-hero-links">
+        <a href="index.html" class="btn btn-ghost">← Zurück</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="wrap">
+      <div class="video-wrap">
+        <!-- TODO: YOUTUBE_ID durch die ID des unlisted Videos ersetzen -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/YOUTUBE_ID"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <section class="highlight-section">
+    <div class="wrap">
+      <h2>Wie ist das <em>entstanden?</em></h2>
+      <p>
+        Das Videoporträt entstand im Kurs Kreativlabor an der Hochschule Furtwangen.
+        Porträtiert habe ich Phillip, einen Mitstudenten und Freund.
+      </p>
+      <p>
+        Gedreht und geschnitten habe ich das Video selbst. Der Schnitt entstand in DaVinci Resolve,
+        die Tonbearbeitung in REAPER.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="detail-grid">
+      <div class="detail-block">
+        <h3>Werkzeuge</h3>
+        <ul>
+          <li>DaVinci Resolve (Schnitt)</li>
+          <li>REAPER (Tonbearbeitung)</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h3>Entstehung</h3>
+        <ul>
+          <li>Kurs: Kreativlabor</li>
+          <li>Hochschule Furtwangen</li>
+          <li>Format: Videoporträt</li>
+          <li>Dreh, Schnitt &amp; Ton</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="nav-projects">
+      <a href="loop.html">← Loop</a>
+      <a href="smartsip.html">Nächstes Projekt: SmartSip →</a>
+    </div>
+  </div>
+
+  <footer class="footer-full">
+    <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

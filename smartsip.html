@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src 'none'; form-action 'self' https://formspree.io; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; base-uri 'self'; object-src 'none'">
+  <title>SmartSip — Tim Heilemann</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Instrument+Serif:ital@0;1&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <nav>
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#projekte">Projekte</a></li>
+      <li><a href="index.html#about">Über mich</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <div class="project-hero-bg">
+      <img src="images/smartsip-teaser.png" alt="" class="centered" style="filter:brightness(0.5)">
+    </div>
+    <div class="wrap">
+      <a href="index.html" class="back-link">← Zurück zur Übersicht</a>
+      <div class="project-hero-meta">
+        <span class="project-tag">UX Design</span>
+        <span class="project-tag">Prototyp</span>
+      </div>
+      <h1>Smart<em>Sip</em></h1>
+      <p class="project-hero-desc">
+        Eine smarte Trinkflasche mit App, die den Wasserhaushalt im Blick behält.
+      </p>
+      <div class="project-hero-links">
+        <a href="https://www.figma.com/proto/ptuzyTHF4GSvzLnFzi57QY/SmartSip_Prototyp?node-id=0-1&amp;t=3FI3hz883QZXQRR0-1" class="btn btn-green" target="_blank" rel="noopener noreferrer">Figma-Prototyp öffnen ↗</a>
+        <a href="index.html" class="btn btn-ghost">← Zurück</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><hr class="divider"></div>
+
+  <section class="highlight-section">
+    <div class="wrap">
+      <h2>Worum geht's <em>eigentlich?</em></h2>
+      <p>
+        SmartSip entstand als Semesterprojekt im Fach UX Design (Gruppe 3). Die Flasche erfasst,
+        wie viel du trinkst, und ist über eine App mit dem Fitnesstracker verbunden. Der individuelle
+        Tagesbedarf wird aus Körpermaßen und Aktivität berechnet. Der Füllstand wird per Schwimmer
+        gemessen; andere Flüssigkeiten und Supplements lassen sich manuell eintragen.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="detail-grid">
+      <div class="detail-block">
+        <h3>Persona: Jochen B.</h3>
+        <ul>
+          <li>38 Jahre, Sport- und Geschichtslehrer</li>
+          <li>Nimmt Supplements</li>
+          <li>Wasserbedarf je nach Sport</li>
+        </ul>
+      </div>
+      <div class="detail-block">
+        <h3>Persona: Jule S.</h3>
+        <ul>
+          <li>22 Jahre, Studentin Digitale Medien</li>
+          <li>Möchte Erinnerungen ans Trinken</li>
+          <li>Weniger Kopfschmerzen</li>
+          <li>Schneller Überblick über das Trinkverhalten</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <section class="highlight-section">
+    <div class="wrap">
+      <h2>Der <em>Styleguide</em></h2>
+      <p>
+        Ruhige Blau- und Petroltöne vermitteln Frische und Klarheit. Als Schrift kommt eine
+        serifenlose Typografie zum Einsatz (Titel 24–32 px semibold, Fließtext 14–16 px).
+      </p>
+      <div class="swatches">
+        <div class="swatch"><div class="swatch-color" style="background:#1A242B"></div><div class="swatch-info"><span>Primary Dark</span><span>#1A242B</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#3F86CC"></div><div class="swatch-info"><span>Primary Blue</span><span>#3F86CC</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#91BBBD"></div><div class="swatch-info"><span>Primary Aqua</span><span>#91BBBD</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#374E5A"></div><div class="swatch-info"><span>Secondary Petrol</span><span>#374E5A</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#5B7F7C"></div><div class="swatch-info"><span>Secondary Teal</span><span>#5B7F7C</span></div></div>
+        <div class="swatch"><div class="swatch-color" style="background:#EBEBEB"></div><div class="swatch-info"><span>Neutral Light</span><span>#EBEBEB</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="nav-projects">
+      <a href="videoportraet.html">← Porträt Phillip</a>
+      <a href="index.html#projekte">Alle Projekte →</a>
+    </div>
+  </div>
+
+  <footer class="footer-full">
+    <span class="footer-text">Tim Heilemann · Hochschule Furtwangen · 2026</span>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
