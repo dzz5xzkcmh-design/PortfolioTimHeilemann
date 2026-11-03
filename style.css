@@ -638,3 +638,74 @@ body::after {
 .hero-video .project-hero-bg img {
   filter: grayscale(100%) brightness(0.5) !important;
 }
+
+/* ===== DESIGN: CLEAN & MINIMAL (ganz ans Ende der style.css) ===== */
+:root { --border: rgba(255, 255, 255, 0.06); }
+
+/* Ruhigere Flächen, mehr Luft */
+.section { background: var(--bg); padding: 10rem 0; margin-bottom: 0; }
+.section + .section { border-top: 1px solid var(--border); }
+.section-eyebrow { letter-spacing: 0.25em; margin-bottom: 4rem; }
+
+/* Hero */
+.hero-eyebrow { border: none; padding: 0; color: rgba(240, 237, 230, 0.5); letter-spacing: 0.22em; }
+.hero h1 { font-size: clamp(3.5rem, 11vw, 9rem); letter-spacing: 0.01em; }
+.hero-sub { color: rgba(240, 237, 230, 0.55); max-width: 380px; }
+
+/* Buttons: nur Linie, keine Füllung */
+.btn { border-radius: 0; letter-spacing: 0.16em; }
+.btn-green { background: transparent; color: var(--text); border-color: rgba(240, 237, 230, 0.6); }
+.btn-green:hover { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+/* Projektkarten */
+.projects-grid { gap: 16px; }
+.project-card { border-radius: 0; }
+.card-overlay { background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 55%); }
+.project-card:hover .card-overlay { background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.1) 60%); }
+.card-tag { border: none; padding: 0; color: rgba(255, 255, 255, 0.6); letter-spacing: 0.16em; }
+.card-num { color: rgba(255, 255, 255, 0.4); }
+
+/* ===== FARBEN: Onyx / Electric Indigo / Tropical Mint ===== */
+:root {
+  --bg: #0b0a16;
+  --bg-2: #0f0d1f;
+  --bg-3: #171433;
+  --accent: #8bf9c0;            /* Tropical Mint: Akzent */
+  --accent-dim: rgba(139, 249, 192, 0.12);
+  --indigo: #6b4eff;            /* Electric Indigo: Stimmung */
+}
+.hero h1 em { color: var(--indigo); }
+.hero-eyebrow,
+.card-tag,
+.project-tag { color: var(--accent); }
+.btn-green { border-color: var(--accent); color: var(--accent); }
+.btn-green:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.hero-fade { background: linear-gradient(to right, rgba(11,10,22,0.97) 0%, rgba(11,10,22,0.75) 30%, rgba(11,10,22,0.25) 60%, transparent 80%); }
+.highlight-section h2 em,
+.contact-left h2 em { color: var(--indigo); }
+
+/* SmartSip Hero: Bild kleiner, Flasche rechts */
+.project-hero-bg img[src*="smartsip"] {
+  width: 65%;
+  margin-left: auto;
+  display: block;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+}
+
+/* SmartSip Karte: Bild kleiner, Flasche rechts */
+.card-bg[src*="smartsip"] {
+  left: auto;
+  right: 0;
+  width: 60%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 35%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 35%);
+}
+/* SmartSip Karte: komplett schwarz */
+.card-smartsip {
+  background: #000;
+}
+.card-bg[src*="smartsip"] {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
