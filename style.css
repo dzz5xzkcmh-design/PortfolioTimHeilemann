@@ -747,3 +747,53 @@ nav { display: none; }
 @media (max-width: 900px) {
   .video-split { grid-template-columns: 1fr; gap: 2rem; }
 }
+
+/* SmartSip Hero: Bild oben ausrichten, Deckel sichtbar */
+.project-hero-bg img[src*="smartsip"] {
+  object-position: center top !important;
+}
+
+/* Loop Hero: Logo rechts, Text links frei */
+.project-hero-bg img[src*="loop"] {
+  width: 60%;
+  margin-left: auto;
+  display: block;
+  object-fit: contain;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 25%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 25%);
+}
+.project-hero-bg:has(img[src*="loop"]) { background: #000; }
+
+/* Größere Schrift in Detail-Blöcken und Projekt-Navigation */
+.detail-block { padding: 2.5rem; }
+.detail-block h3 { font-size: 0.8rem; margin-bottom: 1.25rem; }
+.detail-block ul { gap: 0.75rem; }
+.detail-block ul li { font-size: 1.1rem; color: rgba(255, 255, 255, 0.7); }
+.detail-block ul li::before { width: 6px; height: 6px; }
+.nav-projects a { font-size: 0.95rem; color: rgba(255, 255, 255, 0.6); }
+
+/* Hero größer */
+.hero-content { max-width: 1100px; }
+.hero-eyebrow { font-size: 0.85rem; margin-bottom: 2rem; }
+.hero h1 { font-size: clamp(5rem, 17vw, 15rem); line-height: 0.9; margin-bottom: 2rem; }
+.hero-sub { font-size: 1.5rem; max-width: 640px; margin-bottom: 3rem; }
+.hero .btn { font-size: 1rem; padding: 1.2rem 2.8rem; }
+
+/* Über-mich-Block größer */
+.about-grid { grid-template-columns: 460px 1fr; gap: 6rem; }
+.about-text p { font-size: 1.4rem; max-width: 900px; }
+.about-text .section-eyebrow { font-size: 0.8rem; }
+/* Section-Überschriften in Akzentfarbe */
+.section-eyebrow { color: var(--accent); }
+.section-eyebrow::before { background: var(--accent); }
+
+/* Kontakt-Block größer */
+.contact-left h2 { font-size: clamp(4rem, 9vw, 9rem); }
+.contact-left p { font-size: 1.4rem; max-width: 640px; }
+.contact-left .btn { font-size: 1rem; padding: 1.2rem 2.8rem; }
+.c-link { font-size: 1.4rem; padding: 2rem 0; }
+.c-link-label { font-size: 0.8rem; }
+
+/* Projekt-Navigation in Akzentfarbe */
+.nav-projects a { color: var(--accent); }
+.nav-projects a:hover { color: var(--text); }
