@@ -709,3 +709,8 @@ body::after {
   -webkit-mask-image: none;
   mask-image: none;
 }
+
+/* Normaler Cursor */
+*, *::before, *::after { cursor: auto !important; }
+a, button, .project-card, .burger { cursor: pointer !important; }
+.cursor { display: none !important; }
